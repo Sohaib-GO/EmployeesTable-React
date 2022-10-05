@@ -1,7 +1,7 @@
 import { Context } from "../../../context";
 import React, { useState, useContext } from "react";
 // import { nanoid } from "nanoid";
-import Button from "react-bootstrap/Button";
+import Button from '@mui/material/Button';
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 
@@ -56,7 +56,7 @@ export default function AddEmployee() {
 
   return (
     <>
-      <Button className="addButton" variant="primary" onClick={handleShow}>
+      <Button className="addButton" variant="contained" color="success" size="large" onClick={handleShow}>
         Add Employee
       </Button>
 
@@ -101,10 +101,10 @@ export default function AddEmployee() {
             </Form.Group>
           </Form>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button variant="outlined" color="primary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleAddEmployeeSubmit}>
+            <Button variant="contained" color="success" onClick={handleAddEmployeeSubmit}>
               Add
             </Button>
           </Modal.Footer>

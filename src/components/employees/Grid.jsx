@@ -9,6 +9,9 @@ import Table from "@mui/material/Table";
 import { Context } from "../../../src/context";
 import AddEmployee from "../modal/list/form";
 import EditModal from "../modal/list/editModal";
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+
 
 const Grid = () => {
   const [contacts, setContacts] = useContext(Context);
@@ -47,7 +50,7 @@ const Grid = () => {
               <TableCell align="left">First Name</TableCell>
               <TableCell align="left">Last Name</TableCell>
               <TableCell align="left">Salary</TableCell>
-              <TableCell align="center">Edit</TableCell>
+              <TableCell align="left">Edit</TableCell>
               <TableCell align="left">Delete</TableCell>
             </TableRow>
           </TableHead>
@@ -80,8 +83,10 @@ const Grid = () => {
                 </TableCell>
                 {/* DELETE BUTTON */}
                 <TableCell align="left">
+                <Button variant="outlined" color="error" onClick={() => handleDelete(index)}>
+  Delete
+</Button>
 
-                  <button onClick={() => handleDelete(index)}>Delete</button>
 
                 </TableCell>
 

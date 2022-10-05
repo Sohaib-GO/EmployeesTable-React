@@ -13,11 +13,11 @@ function App() {
   return (
 
   <Context.Provider value={ [contacts, setContacts] }>
-  <div>
+  <div className="body">
   <div>
   <h1 style={{textAlign: 'center'}}>Employee List </h1>
 </div>
-<div><Grid />
+<div ><Grid/>
 
 <AddEmployee />
  </div>

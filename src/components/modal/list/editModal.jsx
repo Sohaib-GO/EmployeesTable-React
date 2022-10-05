@@ -1,11 +1,13 @@
-// create bootstrap modal
-
 
 import React, { useState, useContext } from "react";
 import Form from "react-bootstrap/Form";
 import { Context } from "../../../context";
+import { Modal } from 'react-bootstrap';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-import { Modal, Button } from 'react-bootstrap';
+
 
 const EditModal = (props) => {
     const [contacts, setContacts] = useContext(Context);
@@ -93,10 +95,8 @@ const EditModal = (props) => {
 
   return (
     <>
-    
-      <Button className="addButton" variant="primary" onClick={handleShow}>
-      Edit Employer
-      </Button>
+
+    <Button variant="outlined"     onClick={handleShow} >Edit Employee</Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -111,7 +111,7 @@ const EditModal = (props) => {
                 placeholder="Enter first name"
                 autoFocus
                 name="firstName"
-                value={props.contactFirst}
+                defaultValue={props.contactFirst}
                 
 
                 onChange={handleEditChange}
@@ -143,10 +143,10 @@ const EditModal = (props) => {
             </Form.Group>
        
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button variant="outlined"  color="primary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={ handleEditClick(props.id)}>
+            <Button variant="contained" color="success" onClick={ handleEditClick(props.id)}>
               Save Changes
             </Button>
 
@@ -159,5 +159,7 @@ const EditModal = (props) => {
 }
 
 export default EditModal;
+
+
 
 
