@@ -28,6 +28,15 @@ const Grid = () => {
     }
   };
 
+
+  const formatToCurrency = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+});  
+  
+
+
+
   return (
     <div className="container">
 
@@ -55,7 +64,7 @@ const Grid = () => {
                   {contact.firstName}
                 </TableCell>
                 <TableCell align="left">{contact.lastName}</TableCell>
-                <TableCell align="left">{contact.salary}</TableCell>
+                <TableCell align="left">{formatToCurrency.format(contact.salary)}</TableCell>
                 <TableCell align="left">
 <EditModal  id={index}  // pass index value to the editModal
 

@@ -36,7 +36,7 @@ export default function AddEmployee() {
       id: contacts.length + 1,
       firstName: addEmployee.firstName,
       lastName: addEmployee.lastName,
-      salary: addEmployee.salary,
+      salary: addEmployee.salary
     };
     const newEmployees = [...contacts, newEmployee];
     setContacts(newEmployees);
@@ -44,12 +44,6 @@ export default function AddEmployee() {
     setAddEmployee(null); // 👈️ input required to resubmit
     setShow(false); // 👈️ closes modal after submit
   };
-  const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-  
-  });
-  
   
 
 
