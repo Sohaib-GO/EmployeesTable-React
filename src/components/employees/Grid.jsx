@@ -70,6 +70,9 @@ const Grid = () => {
                 <TableCell align="left" sx={{backgroundColor: "#D2D1D0"}}>{contact.lastName}</TableCell>
                 <TableCell align="left" sx={{backgroundColor: "#D2D1D0"}}>{formatToCurrency.format(contact.salary)}</TableCell>
                 <TableCell align="left" sx={{backgroundColor: "#D2D1D0"}}>
+                <TableCell align="left">{contact.lastName}</TableCell>
+                <TableCell align="left">{formatToCurrency.format(contact.salary)}</TableCell>
+                <TableCell align="left">
 <EditModal  id={index}  // pass index value to the editModal
 
                 contactFirst={contact.firstName}
