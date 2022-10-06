@@ -2,6 +2,7 @@
 <p>
 </p>
 
+![](React-Table.gif)
 
 ## 🚀 Features
 
