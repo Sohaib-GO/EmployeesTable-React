@@ -50,12 +50,8 @@ const EditModal = (props) => {
 
   return (
     <>
-    <Button variant="outlined"     onClick={handleShow} >Edit Employee</Button>
-      <Button variant="contained" onClick={handleShow}>
-        Edit Employee
-      </Button>
 
-    <Button variant="contained"     onClick={handleShow} >Edit Employee</Button>
+    <Button variant="outlined"     onClick={handleShow} >Edit Employee</Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
