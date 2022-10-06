@@ -41,13 +41,11 @@ const Grid = () => {
         <Table sx={{ minWidth: 550 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-<<<<<<< Updated upstream
               <TableCell align="left">First Name</TableCell>
               <TableCell align="left">Last Name</TableCell>
               <TableCell align="left">Salary</TableCell>
               <TableCell align="left">Edit</TableCell>
               <TableCell align="left">Delete</TableCell>
-=======
               <TableCell
                 align="left"
                 sx={{
@@ -103,7 +101,11 @@ const Grid = () => {
               >
                 Delete
               </TableCell>
->>>>>>> Stashed changes
+              <TableCell align="left" sx={{ fontSize: 15, fontWeight: "bold", fontStyle: "oblique" ,backgroundColor:"#DFD8D2" }}>First Name</TableCell>
+              <TableCell align="left" sx={{ fontSize: 15, fontWeight: "bold", fontStyle: "oblique" ,backgroundColor:"#DFD8D2" }}>Last Name</TableCell>
+              <TableCell align="left" sx={{ fontSize: 15, fontWeight: "bold", fontStyle: "oblique",backgroundColor:"#DFD8D2" }}>Salary</TableCell>
+              <TableCell align="left" sx={{ fontSize: 15, fontWeight: "bold", fontStyle: "oblique" ,backgroundColor:"#DFD8D2"}}>Edit</TableCell>
+              <TableCell align="left" sx={{ fontSize: 15, fontWeight: "bold", fontStyle: "oblique" ,backgroundColor:"#DFD8D2"}}>Delete</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -113,15 +115,13 @@ const Grid = () => {
                 key={index}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-<<<<<<< Updated upstream
-
-                <TableCell component="th" scope="row">
+                <TableCell component="th" scope="row" sx={{backgroundColor: "#D2D1D0"}}>
                   {" "}
                   {contact.firstName}
                 </TableCell>
-                <TableCell align="left">{contact.lastName}</TableCell>
-                <TableCell align="left">{formatToCurrency.format(contact.salary)}</TableCell>
-                <TableCell align="left">
+                <TableCell align="left" sx={{backgroundColor: "#D2D1D0"}}>{contact.lastName}</TableCell>
+                <TableCell align="left" sx={{backgroundColor: "#D2D1D0"}}>{formatToCurrency.format(contact.salary)}</TableCell>
+                <TableCell align="left" sx={{backgroundColor: "#D2D1D0"}}>
 <EditModal  id={index}  // pass index value to the editModal
 
                 contactFirst={contact.firstName}
@@ -135,13 +135,12 @@ const Grid = () => {
 
                 </TableCell>
                 {/* DELETE BUTTON */}
-                <TableCell align="left">
-                <Button variant="outlined" color="error" onClick={() => handleDelete(index)}>
+                <TableCell align="left" sx={{backgroundColor: "#D2D1D0"}}>
+                <Button variant="contained" color="error" onClick={() => handleDelete(index)}>
   Delete
 </Button>
 
 
-=======
                 <TableCell
                   component="th"
                   scope="row"
@@ -163,7 +162,6 @@ const Grid = () => {
                     contactLast={contact.lastName}
                     contactSalary={contact.salary}
                   />
->>>>>>> Stashed changes
                 </TableCell>
 
                 {/* DELETE BUTTON */}

@@ -50,14 +50,12 @@ const EditModal = (props) => {
 
   return (
     <>
-<<<<<<< Updated upstream
-
     <Button variant="outlined"     onClick={handleShow} >Edit Employee</Button>
-=======
       <Button variant="contained" onClick={handleShow}>
         Edit Employee
       </Button>
->>>>>>> Stashed changes
+
+    <Button variant="contained"     onClick={handleShow} >Edit Employee</Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
