@@ -1,32 +1,16 @@
-
 import React, { useState, useContext } from "react";
 import Form from "react-bootstrap/Form";
 import { Context } from "../../../context";
-import { Modal } from 'react-bootstrap';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-
+import { Modal } from "react-bootstrap";
+import Button from "@mui/material/Button";
 
 const EditModal = (props) => {
-    const [contacts, setContacts] = useContext(Context);
-
-
-  // Add id to each contact in the array
-  const newArray = contacts.map((x, i) => ({
-    ...x,
-    // Use the items index in the array as a unique key
-    id: i,
-  }));
-
-  const [editContactId, setEditContactId] = useState(null);
+  const [contacts, setContacts] = useContext(Context);
 
   const [editContact, setEditContact] = useState({
     id: "",
     firstName: "",
     lastName: "",
-
     salary: "",
   });
 
@@ -42,50 +26,21 @@ const EditModal = (props) => {
     setEditContact(newFormData);
   };
 
-  const handleEditSubmit = (event) => {
-    event.preventDefault();
-
-    const editedContact = {
-      id: editContactId,
-      firstName: editContact.firstName,
-      lastName: editContact.lastName,
-      salary: editContact.salary,
-    };
-
-    const newContacts = [...contacts];
-
-    const index = contacts.findIndex((contact) => contacts.id === editContactId);
-    
-
-    newContacts[index] = editedContact;
-
-    setContacts(newContacts);
-    setEditContactId(null);
-  };
-
-
   const handleEditClick = (index) => {
     return () => {
-      setEditContactId(index);
-
       let newContacts = [...contacts];
-  
+
       const formValues = {
         firstName: editContact.firstName,
         lastName: editContact.lastName,
         salary: editContact.salary,
       };
-
-
+      // Set the form values to the  new values of the contact to be edited
       newContacts[index] = formValues;
       setContacts(newContacts);
       setShow(false);
-      
     };
-  }
-
-
-
+  };
 
   //   Bootstrap Modal
   const [show, setShow] = useState(false);
@@ -95,6 +50,10 @@ const EditModal = (props) => {
 
   return (
     <>
+    <Button variant="outlined"     onClick={handleShow} >Edit Employee</Button>
+      <Button variant="contained" onClick={handleShow}>
+        Edit Employee
+      </Button>
 
     <Button variant="contained"     onClick={handleShow} >Edit Employee</Button>
 
@@ -103,7 +62,7 @@ const EditModal = (props) => {
           <Modal.Title>Edit Employer</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={handleEditSubmit} >
+          <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>First Name</Form.Label>
               <Form.Control
@@ -112,8 +71,6 @@ const EditModal = (props) => {
                 autoFocus
                 name="firstName"
                 defaultValue={props.contactFirst}
-                
-
                 onChange={handleEditChange}
               />
             </Form.Group>
@@ -125,9 +82,7 @@ const EditModal = (props) => {
                 placeholder="Enter first name"
                 name="lastName"
                 defaultValue={props.contactLast}
-
                 onChange={handleEditChange}
-
               />
             </Form.Group>
 
@@ -141,25 +96,24 @@ const EditModal = (props) => {
                 onChange={handleEditChange}
               />
             </Form.Group>
-       
-          <Modal.Footer>
-            <Button variant="outlined"  color="primary" onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant="contained" color="success" onClick={ handleEditClick(props.id)}>
-              Save Changes
-            </Button>
 
-          </Modal.Footer>
+            <Modal.Footer>
+              <Button variant="outlined" color="primary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button
+                variant="contained"
+                color="success"
+                onClick={handleEditClick(props.id)}
+              >
+                Save Changes
+              </Button>
+            </Modal.Footer>
           </Form>
         </Modal.Body>
       </Modal>
     </>
   );
-}
+};
 
 export default EditModal;
-
-
-
-

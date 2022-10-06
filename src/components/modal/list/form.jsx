@@ -1,13 +1,10 @@
 import { Context } from "../../../context";
 import React, { useState, useContext } from "react";
-// import { nanoid } from "nanoid";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 
 export default function AddEmployee() {
-    
-
   const [contacts, setContacts] = useContext(Context);
 
   const [addEmployee, setAddEmployee] = useState({
@@ -16,12 +13,8 @@ export default function AddEmployee() {
     salary: "",
   });
 
-
-
-
   const handleAddEmployeeChange = (event) => {
     event.preventDefault();
-
     const fieldName = event.target.name;
     const fieldValue = event.target.value;
 
@@ -33,20 +26,19 @@ export default function AddEmployee() {
 
   const handleAddEmployeeSubmit = (event) => {
     const newEmployee = {
+      // generate an id for the new employee (last id + 1)
       id: contacts.length + 1,
       firstName: addEmployee.firstName,
       lastName: addEmployee.lastName,
-      salary: addEmployee.salary
+      salary: addEmployee.salary,
     };
+    // add the new employee to the list of employees
     const newEmployees = [...contacts, newEmployee];
     setContacts(newEmployees);
 
     setAddEmployee(null); // 👈️ input required to resubmit
     setShow(false); // 👈️ closes modal after submit
   };
-  
-
-
 
   //   Bootstrap Modal
   const [show, setShow] = useState(false);
@@ -56,7 +48,13 @@ export default function AddEmployee() {
 
   return (
     <>
-      <Button className="addButton" variant="contained" color="success" size="large" onClick={handleShow}>
+      <Button
+        className="addButton"
+        variant="contained"
+        color="success"
+        size="large"
+        onClick={handleShow}
+      >
         Add Employee
       </Button>
 
@@ -74,7 +72,6 @@ export default function AddEmployee() {
                 autoFocus
                 name="firstName"
                 onChange={handleAddEmployeeChange}
-                value={contacts.firstName}
               />
             </Form.Group>
 
@@ -104,7 +101,11 @@ export default function AddEmployee() {
             <Button variant="outlined" color="primary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="contained" color="success" onClick={handleAddEmployeeSubmit}>
+            <Button
+              variant="contained"
+              color="success"
+              onClick={handleAddEmployeeSubmit}
+            >
               Add
             </Button>
           </Modal.Footer>
@@ -113,4 +114,3 @@ export default function AddEmployee() {
     </>
   );
 }
-
