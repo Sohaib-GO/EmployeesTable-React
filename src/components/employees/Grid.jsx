@@ -41,13 +41,6 @@ const Grid = () => {
         <Table sx={{ minWidth: 550 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-<<<<<<< Updated upstream
-              <TableCell align="left">First Name</TableCell>
-              <TableCell align="left">Last Name</TableCell>
-              <TableCell align="left">Salary</TableCell>
-              <TableCell align="left">Edit</TableCell>
-              <TableCell align="left">Delete</TableCell>
-=======
               <TableCell
                 align="left"
                 sx={{
@@ -103,7 +96,6 @@ const Grid = () => {
               >
                 Delete
               </TableCell>
->>>>>>> Stashed changes
             </TableRow>
           </TableHead>
           <TableBody>
@@ -113,35 +105,6 @@ const Grid = () => {
                 key={index}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-<<<<<<< Updated upstream
-
-                <TableCell component="th" scope="row">
-                  {" "}
-                  {contact.firstName}
-                </TableCell>
-                <TableCell align="left">{contact.lastName}</TableCell>
-                <TableCell align="left">{formatToCurrency.format(contact.salary)}</TableCell>
-                <TableCell align="left">
-<EditModal  id={index}  // pass index value to the editModal
-
-                contactFirst={contact.firstName}
-                contactLast={contact.lastName}
-                contactSalary={contact.salary}
-
-
-  
-/>
-
-
-                </TableCell>
-                {/* DELETE BUTTON */}
-                <TableCell align="left">
-                <Button variant="outlined" color="error" onClick={() => handleDelete(index)}>
-  Delete
-</Button>
-
-
-=======
                 <TableCell
                   component="th"
                   scope="row"
@@ -153,7 +116,7 @@ const Grid = () => {
                   {contact.lastName}
                 </TableCell>
                 <TableCell align="left" sx={{ backgroundColor: "#D2D1D0" }}>
-                {/*  format salary numbers to currency */}
+                 {/* format salary to currency */}
                   {formatToCurrency.format(contact.salary)}
                 </TableCell>
                 <TableCell align="left" sx={{ backgroundColor: "#D2D1D0" }}>
@@ -163,7 +126,6 @@ const Grid = () => {
                     contactLast={contact.lastName}
                     contactSalary={contact.salary}
                   />
->>>>>>> Stashed changes
                 </TableCell>
 
                 {/* DELETE BUTTON */}
